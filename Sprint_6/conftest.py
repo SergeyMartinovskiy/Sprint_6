@@ -1,10 +1,10 @@
 import pytest
 from selenium import webdriver
-from URLS import Main_URL
+from URLS import URL_Scooter
 
 @pytest.fixture()
 def general_settings():
     driver = webdriver.Firefox()
-    driver.get(Main_URL)
+    driver.get(URL_Scooter)
     yield driver
     driver.quit()
