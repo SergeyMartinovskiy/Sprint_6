@@ -1,6 +1,6 @@
 import pytest
 from selenium import webdriver
-from URLS import URL_Scooter
+from URLS import class
 
 @pytest.fixture()
 def general_settings():
