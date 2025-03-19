@@ -1,16 +1,6 @@
 from selenium.webdriver.common.by import By
 
 class MainPageLocator:
-    #Кнопка Заказать сверху
-    order_button_high = (By.XPATH, "//button[@class='Button_Button__ra12g']")
-    #Кнопка Заказать снизу
-    order_button_bottom = (By.XPATH, "//button[@class='Button_Button__ra12g Button_Middle__1CSJM']")
-    #Логотип Самоката
-    button_logo_samokat = (By.XPATH, "//img[@alt='Scooter']")
-    # Логотип Яндекса
-    button_logo_yandex = (By.XPATH, "//img[@alt='Yandex']")
-
-
 
     #FAQ. Сколько это стоит? И как оплатить?
     faq_price = (By.XPATH, '//div[@id="accordion__heading-24"]')
