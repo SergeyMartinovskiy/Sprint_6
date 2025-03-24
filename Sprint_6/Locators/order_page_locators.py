@@ -13,7 +13,7 @@ class OrderPageLocator:
     #Сокольники
     set_metro_one = (By.XPATH, "//input[@value='Сокольники']")
     # Черкизовская
-    set_metro_one = (By.XPATH, "//input[@value='Черкизовская']")
+    set_metro_two = (By.XPATH, "//input[@value='Черкизовская']")
     # Поле ввода номера телефона
     phone_field = (By.XPATH, "//input[@placeholder='* Телефон: на него позвонит курьер']")
 
@@ -38,5 +38,5 @@ class OrderPageLocator:
     button_yes = (By.XPATH, '//button[contains(text(),"Да")]')
 
     # Текст Заказ Оформлен
-    order_booking = (By.XPATH,'.// div[text() = "Заказ оформлен"]')
+    order_booking = (By.XPATH,'//div[@class="Order_ModalHeader__3FDaJ"]')
 
