@@ -28,8 +28,28 @@ class OrderPage(BasePage,data):
         self.waiting_visibility_element(OrderPageLocator.set_metro_one).click()
 
     @allure.step('Находим поле и заполняем Номер телефона')
+    def enter_phone_field(self, telephone_number):
+        self.waiting_visibility_element(OrderPageLocator.phone_field).send_keys(telephone_number)
+
     @allure.step('Нажимаем кнопку Далее')
-    @allure.step('Заполняем поле Срок аренды')
+    def click_continue_button(self):
+        self.waiting_visibility_element(OrderPageLocator.button_next).click()
+
+    @allure.step('Заполняем поле начала аренды')
+    def enter_date_delivery(self):
+        self.waiting_visibility_element(OrderPageLocator.date_field).click()
+        self.waiting_visibility_element(OrderPageLocator.delivery_date).click()
+
+    @allure.step('Заполняем поле срока аренды')
+    def enter_rental_period(self):
+        self.waiting_visibility_element(OrderPageLocator.rent_time_field).click()
+        self.waiting_visibility_element(OrderPageLocator.rent_time_one_day).click()
+
     @allure.step('Нажимаем кнопку Заказать')
+    def click_order_button(self):
+        self.waiting_visibility_element(OrderPageLocator.button_order).click()
+
     @allure.step('Подтверждаем оформление заказа')
-    @allure.step('Вводим Имя')
+    def click_button_yes_in_confirm(self):
+        self.waiting_visibility_element(OrderPageLocator.button_yes).click()
+

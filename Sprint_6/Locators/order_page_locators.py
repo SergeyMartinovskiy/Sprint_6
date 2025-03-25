@@ -21,6 +21,8 @@ class OrderPageLocator:
     button_next = (By.XPATH, "//button[contains(text(),'Далее')]")
     # Поле ввода даты
     date_field = (By.XPATH, "//input[@placeholder='* Когда привезти самокат']")
+    # Поле выбора даты
+    delivery_date = (By.XPATH, "//div[@aria-label='Choose понедельник, 31-е марта 2025 г.']")
     # Поле выбора срока аренды
     rent_time_field = (By.XPATH, "//div[@class='Dropdown-placeholder']")
     # Срок аренды 1 день
