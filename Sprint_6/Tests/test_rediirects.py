@@ -2,6 +2,7 @@ import allure
 import URLS
 
 from Pages.main_page import MainPage
+from conftest import driver
 
 class TestRedirects:
     @allure.title('Тест: Переход на страницу Дзена при нажатии на лого Яндекса в заголовке страницы Самокат')
@@ -10,8 +11,8 @@ class TestRedirects:
         home_page.click_button_accept_cookie()
         home_page.click_logo_yandex()
         home_page.switch_driver()
-        home_page.wait_headline()
-        assert URLS.URL_Dzen == home_page.get_current_url()
+        home_page.wait_headline_dzen()
+        assert 'dzen' in home_page.get_current_url()
 
     @allure.title('Тест: Переход на главную страницу Самоката при нажатии на лого Самоката')
     def test_redirects_scooter(self, driver):

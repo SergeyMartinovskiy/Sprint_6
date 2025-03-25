@@ -1,9 +1,10 @@
 import allure
-import data
+
 from Locators.order_page_locators import OrderPageLocator
+from Locators.base_page_locator import BasePageLocator
 from Pages.base_page import BasePage
 
-class OrderPage(BasePage,data):
+class OrderPage(BasePage, Data):
     @allure.step('Находим поле и вводим Имя')
     def enter_name_in_field(self, name):
         name_in_field = self.waiting_visibility_element(OrderPageLocator.name_field)
@@ -57,3 +58,4 @@ class OrderPage(BasePage,data):
     def order_confirmed(self):
         self.waiting_visibility_element(OrderPageLocator.order_booking)
         return True
+

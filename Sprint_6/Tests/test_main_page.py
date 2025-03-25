@@ -3,7 +3,7 @@ import pytest
 import data
 
 from Pages.main_page import MainPage
-
+from conftest import driver
 
 class TestMainPageFAQ:
     @allure.title('Проверка аккордеона FAQ - Вопрос/Ответ')

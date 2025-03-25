@@ -2,10 +2,11 @@ import allure
 import pytest
 
 from Pages.order_page import OrderPage
+from conftest import driver
 
 class TestOrderPage:
     @allure.title('Заполнение полей формы заказа Самоката')
-    @pytest.mark.parametrize('order_button', ['order_button_high', 'order_button_bottom'])
+    @pytest.mark.parametrize('order_button', ['order_button_in_header_click', 'order_button_in_bottom_click'])
     def test_fill_form_order_page(self, driver, order_button):
         order_page = OrderPage(driver)
         order_page.click_button_accept_cookie()

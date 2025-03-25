@@ -27,6 +27,31 @@ class MainPage(BasePage):
     def wait_show_up_element(self):
         self.waiting_visibility_element(MainPageLocator.Requests[2])
 
+
+
+    @allure.step('Нажимаем на кнопку Логотип Яндекса')
+    def click_logo_yandex(self):
+        self.click_element(BasePageLocator.button_logo_yandex)
+
+    @allure.step('Ждем появление страницы Дзен после нажатия на лого Яндекса')
+    def wait_headline_dzen(self):
+        self.wait_headline_on_top('Дзен')
+        if self.waiting_clickable_element(BasePageLocator.exit_button_in_extra_window_dzen):
+            self.click_element(BasePageLocator.exit_button_in_extra_window_dzen)
+        return self.get_current_url
+
+    @allure.step('Нажимаем на кнопку Логотип Самокат')
+    def click_logo_samokat(self):
+        self.click_element(BasePageLocator.button_logo_samokat)
+
+    @allure.step('Ждем появление страницы Самоката после нажатия на лого Самоката')
+    def wait_headline_scooter(self):
+        self.wait_headline_on_top('Самокат')
+
+    @allure.step('Переключаем драйвер на новое окно')
+    def switch_driver(self):
+        self.driver.switch_to.window(self.driver.window_handles[-1])
+
     @allure.step('Нажимаем на кнопку Заказать в заголовке страницы')
     def order_button_in_header_click(self):
         self.click_element(BasePageLocator.order_button_high)
@@ -34,19 +59,3 @@ class MainPage(BasePage):
     @allure.step('Нажимаем на кнопку Заказать внизу страницы')
     def order_button_in_bottom_click(self):
         self.click_element(BasePageLocator.order_button_bottom)
-
-    @allure.step('Нажимаем на кнопку Логотип Яндекса')
-    def click_logo_yandex(self):
-        self.click_element(BasePageLocator.button_logo_yandex)
-
-    @allure.step('Ждем появление страницы Дзен после нажатия на лого Яндекса')
-    def wait_headline(self):
-        self.wait_headline_on_top('Дзен')
-
-    @allure.step('Нажимаем на кнопку Логотип Самокат')
-    def click_logo_samokat(self):
-        self.click_element(BasePageLocator.button_logo_samokat)
-
-    @allure.step('Ждем появление страницы Самоката после нажатия на лого Самоката')
-    def wait_headline(self):
-        self.wait_headline_on_top('Самокат')
