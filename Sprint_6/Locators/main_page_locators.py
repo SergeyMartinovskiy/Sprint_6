@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 from Locators.base_page_locator import BasePageLocator
-i
+
 class MainPageLocator(BasePageLocator):
     Requests = [
             (By.XPATH, '//div[@id="accordion__heading-8"]'),

@@ -43,7 +43,9 @@ class BasePage:
     def wait_headline_on_top(self, headline):
         WebDriverWait(self.driver, 10).until(expected_conditions.title_is(headline))
 
-
+    @allure.step('Переключаем драйвер')
+    def switch_driver(self):
+        self.driver.switch_to.window(self.driver.window_handles[-1])
 
 
 
