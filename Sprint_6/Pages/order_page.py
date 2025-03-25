@@ -53,3 +53,7 @@ class OrderPage(BasePage,data):
     def click_button_yes_in_confirm(self):
         self.waiting_visibility_element(OrderPageLocator.button_yes).click()
 
+    @allure.step('Окно с текстом подтверждения заказа')
+    def order_confirmed(self):
+        self.waiting_visibility_element(OrderPageLocator.order_booking)
+        return True
