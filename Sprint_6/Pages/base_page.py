@@ -2,7 +2,7 @@ import allure
 
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
-from Locators.base_page_locator import BasePageLocator
+from Locators.main_page_locators import MainPageLocator
 
 
 class BasePage:
@@ -30,7 +30,7 @@ class BasePage:
 
     @allure.step('Нажимаем кнопку Принять Cookies')
     def click_button_accept_cookie(self):
-        self.click_element(BasePageLocator.button_cookie)
+        self.click_element(MainPageLocator.button_cookie)
 
     @allure.step('Получение URL текущей страницы')
     def get_current_url(self):
