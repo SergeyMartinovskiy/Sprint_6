@@ -3,24 +3,36 @@ import allure
 from Locators.main_page_locators import MainPageLocator
 from Locators.base_page_locator import BasePageLocator
 
+ANSWERS = [
+    (0,'Сутки — 400 рублей. Оплата курьеру — наличными или картой.'),
+    (1, 'Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.'),
+    (2, 'Допустим, вы оформляете заказ на 8 мая. Мы привозим самокат 8 мая в течение дня. Отсчёт времени аренды начинается с момента, '
+        'когда вы оплатите заказ курьеру. Если мы привезли самокат 8 мая в 20:30, суточная аренда закончится 9 мая в 20:30.'),
+    (3, 'Только начиная с завтрашнего дня. Но скоро станем расторопнее.'),
+    (4, 'Пока что нет! Но если что-то срочное — всегда можно позвонить в поддержку по красивому номеру 1010.'),
+    (5, 'Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится.'),
+    (6, 'Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.'),
+    (7, 'Да, обязательно. Всем самокатов! И Москве, и Московской области.')
+]
 
 @allure.step ('По номеру возвращается локатор из блока вопросов')
-def requests_position(position):
-    return MainPageLocator.Requests[position]
+def requests_position(question_index):
+    return MainPageLocator.Requests[question_index]
 
 @allure.step ('По номеру возвращается локатор из блока ответов')
-def responses_position(position):
-    return MainPageLocator.Responses[position]
+def responses_position(question_index):
+    return MainPageLocator.Responses[question_index]
 
 class MainPage(BasePage):
 
     @allure.step('Ищем блок FAQ, раскрываем вопросы и ответы')
-    def click_and_get_answer(self, position):
-        self.waiting_visibility_element(requests_position(position)).click()
-        return self.waiting_visibility_element(responses_position(position))
+    def click_and_get_answer(self, question_index):
+        self.waiting_clickable_element(requests_position(question_index)).click()
+        return self.waiting_visibility_element(responses_position(question_index))
 
     @allure.step('Скроллим до необходимого элемента')
     def scrolling_to_block_of_elements(self):
+        self.waiting_visibility_element(MainPageLocator.Requests[2])
         self.scroll_to_element(MainPageLocator.Requests[2])
 
     @allure.step ('После скролла ждем появление необходимого элемента')

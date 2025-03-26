@@ -3,23 +3,23 @@ from Locators.base_page_locator import BasePageLocator
 
 class MainPageLocator(BasePageLocator):
     Requests = [
-            (By.XPATH, '//div[@id="accordion__heading-8"]'),
-            (By.XPATH, "//div[@id='accordion__heading-9']"),
-            (By.XPATH, "//div[@id='accordion__heading-10']"),
-            (By.XPATH, "//div[@id='accordion__heading-11']"),
-            (By.XPATH, "//div[@id='accordion__heading-12']"),
-            (By.XPATH, "//div[@id='accordion__heading-13']"),
-            (By.XPATH, "//div[@id='accordion__heading-14']"),
-            (By.XPATH, "//div[@id='accordion__heading-15']")
+            (By.XPATH, '//div[@id="accordion__heading-0"]'),
+            (By.XPATH, "//div[@id='accordion__heading-1']"),
+            (By.XPATH, "//div[@id='accordion__heading-2']"),
+            (By.XPATH, "//div[@id='accordion__heading-3']"),
+            (By.XPATH, "//div[@id='accordion__heading-4']"),
+            (By.XPATH, "//div[@id='accordion__heading-5']"),
+            (By.XPATH, "//div[@id='accordion__heading-6']"),
+            (By.XPATH, "//div[@id='accordion__heading-7']")
         ]
 
     Responses = [
-            (By.XPATH, 'div[id="accordion__panel-8"]'),
-            (By.XPATH, 'div[id="accordion__panel-9"]'),
-            (By.XPATH, 'div[id="accordion__panel-10"]'),
-            (By.XPATH, 'div[id="accordion__panel-11"]'),
-            (By.XPATH, 'div[id="accordion__panel-12"]'),
-            (By.XPATH, 'div[id="accordion__panel-13"]'),
-            (By.XPATH, 'div[id="accordion__panel-14"]'),
-            (By.XPATH, 'div[id="accordion__panel-15"]')
+            (By.XPATH, 'div[id="accordion__panel-0"]'),
+            (By.XPATH, 'div[id="accordion__panel-1"]'),
+            (By.XPATH, 'div[id="accordion__panel-2"]'),
+            (By.XPATH, 'div[id="accordion__panel-3"]'),
+            (By.XPATH, 'div[id="accordion__panel-4"]'),
+            (By.XPATH, 'div[id="accordion__panel-5"]'),
+            (By.XPATH, 'div[id="accordion__panel-6"]'),
+            (By.XPATH, 'div[id="accordion__panel-7"]')
         ]

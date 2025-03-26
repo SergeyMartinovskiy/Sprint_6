@@ -11,7 +11,7 @@ class BasePage:
 
     @allure.step('Ожидание видимости элемента по локатору')
     def waiting_visibility_element(self, locator):
-        WebDriverWait(self.driver, 10).until(expected_conditions.visibility_of_element_located(locator))
+        WebDriverWait(self.driver, 15).until(expected_conditions.visibility_of_element_located(locator))
         return self.driver.find_element(*locator)
 
     @allure.step('Ожидание кликабельности элемента по локатору')
