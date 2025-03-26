@@ -28,7 +28,8 @@ class MainPage(BasePage):
     @allure.step('Ищем блок FAQ, раскрываем вопросы и ответы')
     def click_and_get_answer(self, question_index):
         self.waiting_clickable_element(requests_position(question_index)).click()
-        return self.waiting_visibility_element(responses_position(question_index))
+        self.waiting_visibility_element(responses_position(question_index))
+        return self.driver.find_element(*responses_position(question_index))
 
     @allure.step('Скроллим до необходимого элемента')
     def scrolling_to_block_of_elements(self):

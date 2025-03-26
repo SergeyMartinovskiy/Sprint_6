@@ -14,7 +14,7 @@ class TestMainPageFAQ:
         home_page.scrolling_to_block_of_elements()
         home_page.wait_show_up_element()
 
-        actuaul_answers = home_page.click_and_get_answer(question_index).text.strip()
+        actuaul_answers = home_page.click_and_get_answer(question_index).text
         assert actuaul_answers == expected_answers
 
 
