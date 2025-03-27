@@ -1,8 +1,10 @@
 import allure
 import pytest
+from data import Data
 
 from Pages.order_page import OrderPage
 from conftest import driver
+
 
 class TestOrderPage:
     @allure.title('Заполнение полей формы заказа Самоката')
@@ -12,12 +14,12 @@ class TestOrderPage:
         order_page.click_button_accept_cookie()
         order_button_choose = getattr(order_page, order_button)
         order_button_choose()
-        order_page.enter_name_in_field()
-        order_page.enter_surname_in_field()
-        order_page.enter_address_in_field()
+        order_page.enter_name_in_field(name = Data.name)
+        order_page.enter_surname_in_field(surname = Data.surname)
+        order_page.enter_address_in_field(address= Data.address)
         order_page.find_metro_field()
         order_page.choose_metro_station()
-        order_page.enter_phone_field()
+        order_page.enter_phone_field(telephone_number = Data.telephone_number)
         order_page.click_continue_button()
         order_page.enter_date_delivery()
         order_page.enter_rental_period()
