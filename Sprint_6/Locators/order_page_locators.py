@@ -11,7 +11,7 @@ class OrderPageLocator:
     # Поле выбора станции метро
     box_set_metro = (By.XPATH, "//div[@class='select-search']")
     #Сокольники
-    set_metro_one = (By.XPATH, "//input[@value='Сокольники']")
+    set_metro_one = (By.XPATH, "//div[text()='Сокольники']")
     # Черкизовская
     set_metro_two = (By.XPATH, "//input[@value='Черкизовская']")
     # Поле ввода номера телефона
