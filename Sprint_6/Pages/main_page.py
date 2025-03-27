@@ -1,6 +1,9 @@
 from Pages.base_page import BasePage
 import allure
 from Locators.main_page_locators import MainPageLocator
+from URLS import URL_Dzen
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
 
 
 ANSWERS = [
@@ -40,18 +43,14 @@ class MainPage(BasePage):
     def wait_show_up_element(self):
         self.waiting_visibility_element(MainPageLocator.Requests[2])
 
-
-
     @allure.step('Нажимаем на кнопку Логотип Яндекса')
     def click_logo_yandex(self):
         self.click_element(MainPageLocator.button_logo_yandex)
 
     @allure.step('Ждем появление страницы Дзен после нажатия на лого Яндекса')
     def wait_headline_dzen(self):
-        self.wait_headline_on_top('Дзен')
-        if self.waiting_clickable_element(MainPageLocator.exit_button_in_extra_window_dzen):
-            self.click_element(MainPageLocator.exit_button_in_extra_window_dzen)
-        return self.get_current_url
+        current_url = self.get_current_url()
+        return current_url
 
     @allure.step('Нажимаем на кнопку Логотип Самокат')
     def click_logo_samokat(self):
@@ -68,4 +67,7 @@ class MainPage(BasePage):
     @allure.step('Нажимаем на кнопку Заказать в заголовке страницы')
     def order_button_in_header_click(self):
         self.click_element(MainPageLocator.order_button_high)
+
+    def wait_url_until_not_about_blank(self, time=10):
+        return WebDriverWait(self.driver, time).until_not(expected_conditions.url_to_be('about:blank'))
 

@@ -37,8 +37,8 @@ class BasePage:
         return self.driver.current_url
 
     @allure.step('Дожидаемся смены URL страницы')
-    def wait_url_changes(self, url):
-        WebDriverWait(self.driver, 10).until(expected_conditions.url_changes(url))
+    def wait_url_changes(self, expected_url):
+        WebDriverWait(self.driver, 10).until(expected_conditions.url_to_be(expected_url))
 
     @allure.step('Появления заголовка на странице')
     def wait_headline_on_top(self, headline):
