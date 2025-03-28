@@ -1,8 +1,8 @@
 import allure
 import pytest
 
-from Pages.main_page import ANSWERS, MainPage
-from conftest import driver
+from pages.main_page import ANSWERS, MainPage
+
 
 class TestMainPageFAQ:
     @allure.title('Проверка аккордеона FAQ - Вопрос/Ответ')

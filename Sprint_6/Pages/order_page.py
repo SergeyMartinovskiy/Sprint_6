@@ -1,9 +1,9 @@
 import allure
 
-from Locators.main_page_locators import MainPageLocator
-from Locators.order_page_locators import OrderPageLocator
+from locators.main_page_locators import MainPageLocator
+from locators.order_page_locators import OrderPageLocator
 from data import Data
-from Pages.main_page import MainPage
+from pages.main_page import MainPage
 
 class OrderPage(MainPage, Data):
     @allure.step('Находим поле и вводим Имя')

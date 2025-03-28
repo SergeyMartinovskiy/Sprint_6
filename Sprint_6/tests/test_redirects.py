@@ -1,9 +1,9 @@
 import allure
 
 
-from Pages.main_page import MainPage
+from pages.main_page import MainPage
 from URLS import URL_Scooter, URL_Dzen
-from conftest import driver
+
 
 class TestRedirects:
     @allure.title('Тест: Переход на страницу Дзена при нажатии на лого Яндекса в заголовке страницы Самокат')

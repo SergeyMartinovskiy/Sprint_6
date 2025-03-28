@@ -1,6 +1,6 @@
-from Pages.base_page import BasePage
+from pages.base_page import BasePage
 import allure
-from Locators.main_page_locators import MainPageLocator
+from locators.main_page_locators import MainPageLocator
 from URLS import URL_Dzen
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait

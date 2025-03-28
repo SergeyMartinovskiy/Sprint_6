@@ -2,8 +2,8 @@ import allure
 import pytest
 from data import Data
 
-from Pages.order_page import OrderPage
-from conftest import driver
+from pages.order_page import OrderPage
+
 
 
 class TestOrderPage:
