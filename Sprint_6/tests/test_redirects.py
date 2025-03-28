@@ -1,6 +1,5 @@
 import allure
 
-
 from pages.main_page import MainPage
 from URLS import URL_Scooter, URL_Dzen
 
