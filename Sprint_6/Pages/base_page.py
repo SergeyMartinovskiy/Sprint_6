@@ -2,12 +2,19 @@ import allure
 
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
-from locators.main_page_locators import MainPageLocator
 
 
 class BasePage:
     def __init__(self, driver):
         self.driver = driver
+
+    @allure.step('Получение URL текущей страницы')
+    def get_current_url(self):
+        return self.driver.current_url
+
+    @allure.step('Переключаем драйвер на новое окно')
+    def switch_driver(self):
+        self.driver.switch_to.window(self.driver.window_handles[-1])
 
     @allure.step('Ожидание видимости элемента по локатору')
     def waiting_visibility_element(self, locator):
@@ -28,13 +35,9 @@ class BasePage:
         element = self.driver.find_element(*locator)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
 
-    @allure.step('Нажимаем кнопку Принять Cookies')
-    def click_button_accept_cookie(self):
-        self.click_element(MainPageLocator.button_cookie)
-
-    @allure.step('Получение URL текущей страницы')
-    def get_current_url(self):
-        return self.driver.current_url
+    @allure.step('Возвращаем элемент по локатору')
+    def find_elements(self, locator):
+        return self.driver.find_element(*locator)
 
     @allure.step('Дожидаемся смены URL страницы')
     def wait_url_changes(self, expected_url):
@@ -44,7 +47,8 @@ class BasePage:
     def wait_headline_on_top(self, headline):
         WebDriverWait(self.driver, 10).until(expected_conditions.title_is(headline))
 
-
+    def wait_url_until_not_about_blank_in(self, time=10):
+        return WebDriverWait(self.driver, time).until_not(expected_conditions.url_to_be('about:blank'))
 
 
 

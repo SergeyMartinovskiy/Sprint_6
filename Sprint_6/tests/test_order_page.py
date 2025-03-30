@@ -10,7 +10,9 @@ class TestOrderPage:
     @allure.title('Заполнение полей формы заказа Самоката')
     @pytest.mark.parametrize('order_button', ['order_button_in_header_click', 'order_button_in_bottom_click'])
     def test_fill_form_order_page(self, driver, order_button):
-        order_page = OrderPage(driver)
+        data = Data()
+        order_page = OrderPage(driver, data)
+
         order_page.click_button_accept_cookie()
         order_button_choose = getattr(order_page, order_button)
         order_button_choose()

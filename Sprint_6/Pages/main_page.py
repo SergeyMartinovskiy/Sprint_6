@@ -1,9 +1,8 @@
 from pages.base_page import BasePage
 import allure
 from locators.main_page_locators import MainPageLocator
-from URLS import URL_Dzen
-from selenium.webdriver.support import expected_conditions
-from selenium.webdriver.support.wait import WebDriverWait
+
+
 
 
 ANSWERS = [
@@ -31,8 +30,7 @@ class MainPage(BasePage):
     @allure.step('Ищем блок FAQ, раскрываем вопросы и ответы')
     def click_and_get_answer(self, question_index):
         self.waiting_clickable_element(requests_position(question_index)).click()
-        self.waiting_visibility_element(responses_position(question_index))
-        return self.driver.find_element(*responses_position(question_index))
+        return self.waiting_visibility_element(responses_position(question_index))
 
     @allure.step('Скроллим до необходимого элемента')
     def scrolling_to_block_of_elements(self):
@@ -60,14 +58,15 @@ class MainPage(BasePage):
     def wait_headline_scooter(self):
         self.wait_headline_on_top('Самокат')
 
-    @allure.step('Переключаем драйвер на новое окно')
-    def switch_driver(self):
-        self.driver.switch_to.window(self.driver.window_handles[-1])
-
     @allure.step('Нажимаем на кнопку Заказать в заголовке страницы')
     def order_button_in_header_click(self):
         self.click_element(MainPageLocator.order_button_high)
 
+    @allure.step('Ждем, пока URL не станет отличным от about:blank')
     def wait_url_until_not_about_blank(self, time=10):
-        return WebDriverWait(self.driver, time).until_not(expected_conditions.url_to_be('about:blank'))
+        return self.wait_url_until_not_about_blank_in(time)
+
+    @allure.step('Нажимаем кнопку Принять Cookies')
+    def click_button_accept_cookie(self):
+        self.click_element(MainPageLocator.button_cookie)
 
