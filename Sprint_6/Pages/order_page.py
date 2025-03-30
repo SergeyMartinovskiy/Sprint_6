@@ -5,7 +5,13 @@ from locators.order_page_locators import OrderPageLocator
 from data import Data
 from pages.main_page import MainPage
 
-class OrderPage(MainPage, Data):
+
+class OrderPage(MainPage):
+
+    def __init__(self, driver, data:Data):
+        super().__init__(driver)
+        self.data = data
+
     @allure.step('Находим поле и вводим Имя')
     def enter_name_in_field(self, name):
         name_in_field = self.waiting_visibility_element(OrderPageLocator.name_field)
